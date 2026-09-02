@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/interconnectit/Search-Replace-DB.svg?branch=4.0)](https://travis-ci.org/interconnectit/Search-Replace-DB)
 
-# Search Replace DB - v4.1.3
+# Search Replace DB - v4.1.4
 
 This script was made to aid the process of migrating PHP and MySQL
 based websites. Works with most common CMSes.
@@ -9,7 +9,11 @@ If you find a problem let us know in the issues area and if you can
 improve the code then please fork the repository and send us a pull
 request :)
 
-## What's New
+## What's New in 4.1.4
+
+Adapted to work with a broader range of PHP versions - warnings in PHP 8.x versions should be gone now.
+
+## What's New in 4.1
  * Support for continuous integration through Travis CI
  * Ability to do multiple search-replaces
  * Ability to exclude tables
