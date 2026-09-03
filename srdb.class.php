@@ -262,7 +262,12 @@ class icit_srdb {
         // allow a string for columns
         foreach ( array( 'exclude_cols', 'include_cols', 'tables', 'exclude_tables' ) as $maybe_string_arg ) {
 
-            ini_set( 'unserialize_callback_func', 'object_serializer' );
+            // Keep the callback unset. Rebuilding unknown classes as ArrayObject makes
+            // unserialize() call ArrayObject::__unserialize() with a foreign payload, which
+            // throws "Incomplete or ill-typed serialization data" for every such cell.
+            // Unset, PHP yields __PHP_Incomplete_Class, which recursive_unserialize_replace()
+            // already skips safely.
+            ini_set( 'unserialize_callback_func', '' );
 
             if ( is_string( $args[ $maybe_string_arg ] ) ) {
                 $args[ $maybe_string_arg ] = array_filter(
